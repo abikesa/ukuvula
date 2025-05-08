@@ -88,3 +88,4 @@ Do not attempt compilation.
 # flick 20250507145316-8Pqp
 # flick 20250507145830-6x7y
 # flick 20250508095035-bngh
+# flick 20250508161849-sPAD
