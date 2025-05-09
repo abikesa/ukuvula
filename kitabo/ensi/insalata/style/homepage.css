@@ -32,13 +32,11 @@ body {
   animation: fadeIn 1.5s ease forwards;
 }
 
-/* FadeIn keyframes */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* Site title */
 #site-name {
   font-size: 36px;
   font-weight: 600;
@@ -46,7 +44,6 @@ body {
   margin-top: -1em;
 }
 
-/* Tagline */
 #site-tagline {
   font-size: 16px;
   font-style: italic;
@@ -55,14 +52,12 @@ body {
   margin-bottom: 1em;
 }
 
-/* Centerpiece container */
 #centerpiece {
   position: relative;
   width: 450px;
   height: 450px;
 }
 
-/* Globe image */
 #logo {
   position: absolute;
   top: 50%;
@@ -76,15 +71,11 @@ body {
   clip-path: circle(50%);
 }
 
-
-
-
 @keyframes spin {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* Topic links arranged around a perfect circle */
 .topic {
   position: absolute;
   color: var(--accent-color);
@@ -106,7 +97,6 @@ body {
   text-shadow: 0 0 8px var(--accent-color), 0 0 12px var(--text-color);
 }
 
-/* Search bar */
 #search-bar {
   margin-top: 2em;
   width: 100%;
@@ -125,7 +115,6 @@ body {
   color: var(--text-color);
 }
 
-/* Search preview snippet under each topic link */
 .search-preview {
   font-size: 0.85em;
   color: var(--text-color);
@@ -145,14 +134,12 @@ body {
   to { opacity: 1; }
 }
 
-/* Soft divider between articles */
 .topic + .search-preview {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
 
-/* Settings bar with theme toggle */
 #settings-bar {
   position: absolute;
   top: 1em;
@@ -171,4 +158,81 @@ body {
 
 #toggle-theme:hover {
   transform: scale(1.2);
+}
+
+/* GRID MENU — LIGHT + DARK VISIBILITY FIXES */
+.app-grid {
+  position: absolute;
+  top: 4rem;
+  left: 1em;
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  max-height: 80vh;
+  overflow-y: auto;
+  width: 90vw;
+  max-width: 1000px;
+  z-index: 998;
+}
+
+html[data-theme='dark'] .app-grid {
+  background: rgba(0, 0, 0, 0.97);
+  border: 1px solid #222;
+  color: #eee;
+}
+
+.app-grid a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.3s ease;
+  opacity: 1;
+  color: inherit;
+}
+
+.app-grid .icon-box {
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+html[data-theme='light'] .app-grid a {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  color: #222;
+}
+
+html[data-theme='dark'] .app-grid a {
+  background-color: #111;
+  border: 1px solid #222;
+  color: #eee;
+}
+
+.app-grid a:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+html[data-theme='light'] .app-grid a:hover {
+  background-color: #eaeaea;
+}
+
+html[data-theme='dark'] .app-grid a:hover {
+  background-color: #1a1a1a;
 }
