@@ -40,3 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
     setTheme(current === 'dark' ? 'light' : 'dark');
   });
 });
+
+function setTheme(theme) {
+  html.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  if (logo) logo.src = theme === 'dark' ? DARK_LOGO : LIGHT_LOGO;
+  if (toggleBtn) toggleBtn.textContent = theme === 'dark' ? '🌙' : '🌞';
+
+  // Apply theme class to iframe wrapper(s)
+  document.querySelectorAll('.video-frame-wrapper').forEach(wrapper => {
+    wrapper.classList.toggle('dark-wrapper', theme === 'dark');
+    wrapper.classList.toggle('light-wrapper', theme === 'light');
+  });
+}
